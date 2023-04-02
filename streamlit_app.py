@@ -66,4 +66,4 @@ def mainPage():
     return jsonify(filename=filename, img_url=img_url, predicted_results=predicted_results)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
