@@ -1,23 +1,30 @@
-from flask import Flask, Blueprint, request, jsonify
-from flask_cors import CORS
+import streamlit as st
 import numpy as np
+import tensorflow as tf
 from tensorflow import keras
-from werkzeug.utils import secure_filename
 from PIL import Image
+from werkzeug.utils import secure_filename
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import json
 
-app = Flask(__name__)
-CORS(app)
+st.set_page_config(page_title="Tumor Detection", page_icon=":microscope:", layout="wide")
 
-model = keras.models.load_model("classification.h5")
-
+model = keras.models.load_model("./models/classification.h5")
 classes = ['Ningún Tumor', 'Tumor Pituitario', 'Tumor Meningioma', 'Tumor Glioma']
 
 
-result = ""
-ses = False
+def names(number):
+    if (number == 0):
+        return classes[0]
+    elif (number == 1):
+        return classes[1]
+    elif (number == 2):
+        return classes[2]
+    elif (number == 3):
+        return classes[3]
+
 
 def upload_image(file):
     cloudinary.config(
@@ -32,38 +39,27 @@ def upload_image(file):
     return image_url
 
 
-def names(number):
-    if (number == 0):
-        return classes[0]
-    elif (number == 1):
-        return classes[1]
-    elif (number == 2):
-        return classes[2]
-    elif (number == 3):
-        return classes[3]
-
-
-@app.route("/detection", methods=["POST"])
-def mainPage():
-    if 'file' not in request.files:
-        return jsonify(error="Archivo no encontrado")
-
-    file = request.files['file']
-    if file.filename == '':
-        return jsonify(error="Nombre de archivo no encontrado")
-
-    filename = secure_filename(file.filename)
-    img_url = upload_image(file)
-    img = Image.open(file)
+def predict(image):
     dim = (150, 150)
-    x = np.array(img.resize(dim))
+    x = np.array(image.resize(dim))
     x = x.reshape(1, 150, 150, 3)
     answ = model.predict_on_batch(x)
     classification = np.where(answ == np.amax(answ))[1][0]
-    predicted_results = names(classification)+' Detectado'
+    return names(classification) + ' Detectado'
 
-    # Devuelve el resultado de la clasificación y la URL de la imagen en formato JSON
-    return jsonify(filename=filename, img_url=img_url, predicted_results=predicted_results)
+
+def main():
+    st.title("Detección de tumores cerebrales")
+
+    uploaded_file = st.file_uploader("Cargue una imagen de tomografía computarizada o resonancia magnética", type=["jpg", "jpeg", "png"])
+    if uploaded_file is not None:
+        image = Image.open(uploaded_file)
+        st.image(image, caption='Imagen cargada', use_column_width=True)
+        st.write("")
+        st.write("Predicción:")
+        result = predict(image)
+        st.write(result)
+
 
 if __name__ == '__main__':
-    app.run()
+    main()
