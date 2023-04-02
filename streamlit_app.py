@@ -11,7 +11,7 @@ import json
 
 st.set_page_config(page_title="Tumor Detection", page_icon=":microscope:", layout="wide")
 
-model = keras.models.load_model("./models/classification.h5")
+model = keras.models.load_model("classification.h5")
 classes = ['Ningún Tumor', 'Tumor Pituitario', 'Tumor Meningioma', 'Tumor Glioma']
 
 
