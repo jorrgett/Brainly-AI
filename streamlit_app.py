@@ -69,7 +69,7 @@ def main():
         st.write(result)
 
         if st.button('Llenar Formulario'):
-                webbrowser.open('https://main-brainly.vercel.app/profile')
+                webbrowser.open('https://main-brainly.vercel.app')
 
 
 if __name__ == '__main__':
