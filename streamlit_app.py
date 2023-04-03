@@ -48,13 +48,24 @@ def predict(image):
     classification = np.where(answ == np.amax(answ))[1][0]
 
     if classification == 0:
-        return "No se detectó ningún tumor en la imagen. ¡Felicidades! Según nosotros, no tiene un tumor cerebral, pero le recomendamos encarecidamente que visite a un médico para asegurarse de que está realmente a salvo. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información."
+        st.write("¡Felicidades! Según nosotros, no tiene un tumor cerebral, pero le recomendamos encarecidamente que visite a un médico para asegurarse de que está realmente a salvo.")
+        st.markdown("<a href='https://main-brainly.vercel.app/profile-patient' target='_blank'>Envíar Datos</a>", unsafe_allow_html=True)
+        
     elif classification == 1:
-        if st.button('Más información sobre Tumor Pituitario'):
-            webbrowser.open('https://www.cancer.gov/espanol/tipos/tumor-de-hipofisis')
-        return "Se detectó un tumor pituitario en la imagen. Los tumores pituitarios son crecimientos anormales que se desarrollan en la glándula pituitaria. Algunos tumores pituitarios dan como resultado demasiadas hormonas que regulan funciones importantes de su cuerpo. Algunos tumores pituitarios pueden hacer que la glándula pituitaria produzca niveles más bajos de hormonas. Aun así le recomendamos encarecidamente que contacte a un médico para asegurarse de que realmente la información sea verídica. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información."
+        st.write("Los tumores pituitarios son crecimientos anormales que se desarrollan en la glándula pituitaria. Algunos tumores pituitarios dan como resultado demasiadas hormonas que regulan funciones importantes de su cuerpo. Algunos tumores pituitarios pueden hacer que la glándula pituitaria produzca niveles más bajos de hormonas.")
+        st.write("La mayoría de los tumores hipofisarios son crecimientos no cancerosos (benignos) (adenomas). Los adenomas permanecen en la glándula pituitaria o en los tejidos circundantes y no se diseminan a otras partes del cuerpo.")
+        st.write("Hay varias opciones para tratar los tumores pituitarios, incluida la extirpación del tumor, el control de su crecimiento y el control de los niveles hormonales con medicamentos. Su médico puede recomendar la observación, o un enfoque de 'esperar y ver'.")
+        st.write("Aun así le recomendamos encarecidamente que contacte a un médico para asegurarse de que realmente la información sea verídica. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información. A continuación le proporcionamos el link para que pueda enviar sus datos.")
+        st.markdown("<a href='https://main-brainly.vercel.app/profile-patient' target='_blank'>Envíar Datos</a>", unsafe_allow_html=True)
+
     elif classification == 2:
-        return "Se detectó un tumor meningioma en la imagen. Un meningioma es un tumor que surge de las meninges, las membranas que rodean el cerebro y la médula espinal. Aunque técnicamente no es un tumor cerebral, se incluye en esta categoría porque puede comprimir o apretar el cerebro, los nervios y los vasos adyacentes. Aun así le recomendamos encarecidamente que contacte a un médico para asegurarse de que realmente la información sea verídica. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información."
+        st.write("Un meningioma es un tumor que surge de las meninges, las membranas que rodean el cerebro y la médula espinal. Aunque técnicamente no es un tumor cerebral, se incluye en esta categoría porque puede comprimir o apretar el cerebro, los nervios y los vasos adyacentes. El meningioma es el tipo más común de tumor que se forma en la cabeza.")
+        st.write("La mayoría de los meningiomas crecen muy lentamente, a menudo durante muchos años sin causar síntomas. Pero a veces, sus efectos en el tejido cerebral, los nervios o los vasos sanguíneos cercanos pueden causar una discapacidad grave.")
+        st.write("Los meningiomas ocurren más comúnmente en mujeres y a menudo se descubren a edades más avanzadas, pero pueden ocurrir a cualquier edad.")
+        st.write("Debido a que la mayoría de los meningiomas crecen lentamente, a menudo sin signos ni síntomas significativos, no siempre requieren tratamiento inmediato y pueden controlarse con el tiempo.")
+        st.write("Aun así le recomendamos encarecidamente que contacte a un médico para asegurarse de que realmente la información sea verídica. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información. A continuación le proporcionamos el link para que pueda enviar sus datos.")
+        st.markdown("<a href='https://main-brainly.vercel.app/profile-patient' target='_blank'>Envíar Datos</a>", unsafe_allow_html=True)
+
     elif classification == 3:
         st.write("Se detectó un tumor glioma en la imagen.")
         st.write("El glioma es un tipo de tumor que se presenta en el cerebro y la médula espinal. Los gliomas comienzan en las células de apoyo pegajosas (células gliales) que rodean las células nerviosas y las ayudan a funcionar.")
