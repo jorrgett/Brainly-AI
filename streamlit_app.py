@@ -48,9 +48,9 @@ def predict(image):
     classification = np.where(answ == np.amax(answ))[1][0]
 
     if classification == 0:
-        st.write("¡Felicidades! Según nosotros, no tiene un tumor cerebral, pero le recomendamos encarecidamente que visite a un médico para asegurarse de que está realmente a salvo.")
+        st.write("¡Felicidades! Según nosotros, no tiene un tumor cerebral. Aun así le recomendamos encarecidamente que contacte a un médico para asegurarse de que realmente la información sea verídica. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información. A continuación le proporcionamos el link para que pueda enviar sus datos.")
         st.markdown("<a href='https://main-brainly.vercel.app/profile-patient' target='_blank'>Envíar Datos</a>", unsafe_allow_html=True)
-        
+
     elif classification == 1:
         st.write("Los tumores pituitarios son crecimientos anormales que se desarrollan en la glándula pituitaria. Algunos tumores pituitarios dan como resultado demasiadas hormonas que regulan funciones importantes de su cuerpo. Algunos tumores pituitarios pueden hacer que la glándula pituitaria produzca niveles más bajos de hormonas.")
         st.write("La mayoría de los tumores hipofisarios son crecimientos no cancerosos (benignos) (adenomas). Los adenomas permanecen en la glándula pituitaria o en los tejidos circundantes y no se diseminan a otras partes del cuerpo.")
