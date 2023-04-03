@@ -66,7 +66,7 @@ def predict(image):
         st.write("Un glioma puede afectar su función cerebral y poner en peligro la vida según su ubicación y la tasa de crecimiento. Los gliomas son uno de los tipos más comunes de tumores cerebrales primarios.")
         st.write("El tipo de glioma que tiene ayuda a determinar su tratamiento y su pronóstico. En general, las opciones de tratamiento del glioma incluyen cirugía, radioterapia, quimioterapia, terapia dirigida y ensayos clínicos experimentales.")
         st.write("Aun así le recomendamos encarecidamente que contacte a un médico para asegurarse de que realmente la información sea verídica. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información. A continuación le proporcionamos el link para que pueda enviar sus datos.")
-        st.markdown("<a href='https://main-brainly.vercel.app/profile' target='_blank'>Envíar Datos</a>", unsafe_allow_html=True)
+        st.markdown("<a href='https://main-brainly.vercel.app/profile-patient' target='_blank'>Envíar Datos</a>", unsafe_allow_html=True)
 
 def main():
     st.title("Detección de tumores cerebrales")
