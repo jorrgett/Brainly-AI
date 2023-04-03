@@ -45,13 +45,13 @@ def predict(image):
     x = x.reshape(1, 150, 150, 3)
     answ = model.predict_on_batch(x)
     classification = np.where(answ == np.amax(answ))[1][0]
-    
+
     if classification == 0:
         return "No se detectó ningún tumor en la imagen."
     elif classification == 1:
         return "Se detectó un tumor pituitario en la imagen."
     elif classification == 2:
-        return "Se detectó un tumor meningioma en la imagen."
+        return "Se detectó un tumor meningioma en la imagen. Un meningioma es un tumor que surge de las meninges, las membranas que rodean el cerebro y la médula espinal. Aunque técnicamente no es un tumor cerebral, se incluye en esta categoría porque puede comprimir o apretar el cerebro, los nervios y los vasos adyacentes. Aun así le recomendamos encarecidamente que contacte a un médico para asegurarse de que realmente la información sea verídica. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información."
     elif classification == 3:
         return "Se detectó un tumor glioma en la imagen."
 
