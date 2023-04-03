@@ -47,13 +47,13 @@ def predict(image):
     classification = np.where(answ == np.amax(answ))[1][0]
 
     if classification == 0:
-        return "No se detectó ningún tumor en la imagen."
+        return "No se detectó ningún tumor en la imagen. ¡Felicidades! Según nosotros, no tiene un tumor cerebral, pero le recomendamos encarecidamente que visite a un médico para asegurarse de que está realmente a salvo. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información."
     elif classification == 1:
-        return "Se detectó un tumor pituitario en la imagen."
+        return "Se detectó un tumor pituitario en la imagen. Los tumores pituitarios son crecimientos anormales que se desarrollan en la glándula pituitaria. Algunos tumores pituitarios dan como resultado demasiadas hormonas que regulan funciones importantes de su cuerpo. Algunos tumores pituitarios pueden hacer que la glándula pituitaria produzca niveles más bajos de hormonas. Aun así le recomendamos encarecidamente que contacte a un médico para asegurarse de que realmente la información sea verídica. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información."
     elif classification == 2:
         return "Se detectó un tumor meningioma en la imagen. Un meningioma es un tumor que surge de las meninges, las membranas que rodean el cerebro y la médula espinal. Aunque técnicamente no es un tumor cerebral, se incluye en esta categoría porque puede comprimir o apretar el cerebro, los nervios y los vasos adyacentes. Aun así le recomendamos encarecidamente que contacte a un médico para asegurarse de que realmente la información sea verídica. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información."
     elif classification == 3:
-        return "Se detectó un tumor glioma en la imagen."
+        return "Se detectó un tumor glioma en la imagen. El glioma es un tipo de tumor que se presenta en el cerebro y la médula espinal. Los gliomas comienzan en las células de apoyo pegajosas (células gliales) que rodean las células nerviosas y las ayudan a funcionar. Aun así le recomendamos encarecidamente que contacte a un médico para asegurarse de que realmente la información sea verídica. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información."
 
 
 def main():
