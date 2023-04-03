@@ -56,9 +56,6 @@ def predict(image):
     elif classification == 3:
         return "Se detectó un tumor glioma en la imagen. El glioma es un tipo de tumor que se presenta en el cerebro y la médula espinal. Los gliomas comienzan en las células de apoyo pegajosas (células gliales) que rodean las células nerviosas y las ayudan a funcionar. Aun así le recomendamos encarecidamente que contacte a un médico para asegurarse de que realmente la información sea verídica. En nuestra base de datos contamos con algunos médicos que le podrán verificar la información."
 
-    if st.button('Llenar Formulario'):
-                webbrowser.open('main-brainly.vercel.app/profile')
-
 def main():
     st.title("Detección de tumores cerebrales")
 
@@ -70,6 +67,9 @@ def main():
         st.write("Predicción:")
         result = predict(image)
         st.write(result)
+
+        if st.button('Llenar Formulario'):
+                webbrowser.open('main-brainly.vercel.app/profile')
 
 
 if __name__ == '__main__':
