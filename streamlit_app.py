@@ -45,7 +45,15 @@ def predict(image):
     x = x.reshape(1, 150, 150, 3)
     answ = model.predict_on_batch(x)
     classification = np.where(answ == np.amax(answ))[1][0]
-    return names(classification) + ' Detectado'
+    
+    if classification == 0:
+        return "No se detectó ningún tumor en la imagen."
+    elif classification == 1:
+        return "Se detectó un tumor pituitario en la imagen."
+    elif classification == 2:
+        return "Se detectó un tumor meningioma en la imagen."
+    elif classification == 3:
+        return "Se detectó un tumor glioma en la imagen."
 
 
 def main():
